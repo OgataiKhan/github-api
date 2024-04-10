@@ -20,7 +20,7 @@ export default {
     <div class="text-center">
       Results
       <ul>
-        <AppMainResultsCard v-for="repository in store.repositories" :name="repository.name" />
+        <AppMainResultsCard v-for="result in store.results" :name="result.name" :login="result.login" />
       </ul>
     </div>
 </template>

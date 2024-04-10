@@ -3,7 +3,7 @@ import { store } from "../store";
 
 export default {
   name: "AppMainSearch",
-  emits: ['searchClick'],
+  emits: ["searchClick"],
   data() {
     return {
       store,
@@ -26,7 +26,19 @@ export default {
         />
       </div>
       <div class="col-auto">
-        <button @click.prevent="$emit('searchClick')" type="submit" class="btn btn-primary mb-3">Search</button>
+        <select v-model="store.queryType" class="form-select" aria-label="Query type">
+          <option value="repositories" selected>Repositories</option>
+          <option value="users">Users/Organizations</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <button
+          @click.prevent="$emit('searchClick')"
+          type="submit"
+          class="btn btn-primary mb-3"
+        >
+          Search
+        </button>
       </div>
     </form>
   </div>

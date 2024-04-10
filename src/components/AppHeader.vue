@@ -1,6 +1,5 @@
 <script>
 
-
 export default {
   name: 'AppHeader',
 };
@@ -10,7 +9,7 @@ export default {
 <template>
   <header>
     <div class="container">
-      Header
+      <h1 class="text-center py-4">GitHub API</h1>
     </div>
   </header>
 </template>

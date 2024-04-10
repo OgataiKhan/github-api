@@ -2,14 +2,14 @@
 
 export default {
   name: 'AppMainResultsCard',
-  
+  props: ['name'],
 };
 
 </script>
 
 <template>
     <li>
-      Card
+      <p>{{ name }}</p>
     </li>
 </template>
 

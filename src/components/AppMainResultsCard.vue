@@ -3,7 +3,16 @@ import { store } from "../store";
 
 export default {
   name: "AppMainResultsCard",
-  props: ["full_name", "login", "type", "avatar_url", "owner_avatar_url", "owner_login"],
+  props: [
+    "full_name",
+    "login",
+    "type",
+    "avatar_url",
+    "owner_avatar_url",
+    "owner_login",
+    "description",
+    "url",
+  ],
   data() {
     return {
       store,
@@ -14,7 +23,7 @@ export default {
 
 <template>
   <li class="col">
-    <div class="card" style="width: 18rem">
+    <div class="card h-100" style="width: 18rem">
       <div
         :class="{
           'repo-bg': full_name,
@@ -31,11 +40,13 @@ export default {
       <div class="card-body">
         <h5 v-if="full_name" class="card-title">{{ full_name }}</h5>
         <h5 v-if="login" class="card-title">{{ login }}</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+        <p v-if="full_name" class="card-text">
+          {{ description }}
         </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+      <div class="card-footer">
+        <a v-if="full_name" :href="url">Go to repo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a v-if="login" :href="url">Go to profile <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
       </div>
     </div>
   </li>
@@ -84,5 +95,21 @@ export default {
 .card {
   background-color: #efefef;
   overflow: hidden;
+}
+
+.card-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100ch;
+}
+
+.card-footer a {
+  color: #727272;
+  text-decoration: none;
+}
+
+.card-footer a:hover {
+  text-decoration: underline;
 }
 </style>

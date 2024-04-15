@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <li class="col">
+  <li v-if="!store.isLoading" class="col">
     <div class="card h-100" style="width: 18rem">
       <div
         :class="{

@@ -4,8 +4,6 @@ export const store = reactive ({
   query: '',
   queryType: 'repositories',
   results: [],
-  repositories: [],
-  users: [],
   displayRepositories: false,
   displayUsers: false,
   apiGitHub: {

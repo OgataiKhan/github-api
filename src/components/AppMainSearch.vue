@@ -20,13 +20,18 @@ export default {
         <input
           v-model="store.query"
           type="text"
+          minlength="3"
           class="form-control searchbar"
           id="search-input"
           placeholder="What are you looking for?"
         />
       </div>
       <div class="col-auto">
-        <select v-model="store.queryType" class="form-select" aria-label="Query type">
+        <select
+          v-model="store.queryType"
+          class="form-select"
+          aria-label="Query type"
+        >
           <option value="repositories" selected>Repositories</option>
           <option value="users">Users/Organizations</option>
         </select>

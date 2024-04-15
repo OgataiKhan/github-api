@@ -19,10 +19,17 @@ export default {
 <template>
     <div class="text-center">
       Results
-      <ul>
-        <AppMainResultsCard v-for="result in store.results" :name="result.name" :login="result.login" />
+      <ul class="row gy-4 card-list">
+        <AppMainResultsCard v-for="result in store.results" :full_name="result.full_name" :login="result.login" :type="result.type" :avatar_url="result.avatar_url" :owner_avatar_url="result.owner?.avatar_url ?? ''" :owner_login="result.owner?.login ?? ''" />
       </ul>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+.card-list {
+  list-style: none;
+}
+
+
+</style>

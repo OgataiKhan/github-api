@@ -21,6 +21,7 @@ export default {
     repoSearch() {
       if (store.query.length >= 3) {
         store.isLoading = true;
+        store.displayNoResults = false;
         let apiUrl = store.apiGitHub.defaultURL + store.apiGitHub.search;
         if (store.queryType === "repositories") {
           apiUrl += store.apiGitHub.repositories;
@@ -42,8 +43,17 @@ export default {
           })
           .finally(() => {
             store.isLoading = false;
+            store.displayNoResults = true;
           });
       }
+    },
+    handleInput() {
+      if (store.timeout) {
+        clearTimeout(store.timeout);
+      }
+      store.timeout = setTimeout(() => {
+      this.repoSearch();
+    }, 700);
     },
   },
 };
@@ -52,7 +62,7 @@ export default {
 <template>
   <main>
     <div class="container">
-      <AppMainSearch @searchClick="repoSearch" />
+      <AppMainSearch @searchClick="repoSearch" @searchInput="handleInput" />
       <AppMainResults />
     </div>
   </main>

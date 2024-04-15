@@ -14,4 +14,6 @@ export const store = reactive ({
     apiKey: '',
   },
   isLoading: false,
+  timeout: null,
+  displayNoResults: false,
 });

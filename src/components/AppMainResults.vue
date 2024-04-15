@@ -21,7 +21,7 @@ export default {
     <div v-if="store.isLoading" class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
-    <p v-if="store.results.length === 0">
+    <p v-if="store.results.length === 0 && store.displayNoResults">
       No results found. Try adjusting your query.
     </p>
     <ul class="row gy-4 card-list card-deck">

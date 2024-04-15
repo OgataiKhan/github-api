@@ -3,7 +3,7 @@ import { store } from "../store";
 
 export default {
   name: "AppMainSearch",
-  emits: ["searchClick"],
+  emits: ["searchClick", "searchInput"],
   data() {
     return {
       store,
@@ -18,7 +18,7 @@ export default {
       <div class="col-auto">
         <label for="search-input" class="visually-hidden">Search input</label>
         <input
-          v-model="store.query"
+          v-model="store.query" @input="$emit('searchInput')"
           type="text"
           minlength="3"
           class="form-control searchbar"
